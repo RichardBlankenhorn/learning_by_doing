@@ -4,14 +4,14 @@ numbers = (1..100).to_a
 fizz_buzz_array = Array.new
 
 count = 1
-while count <= 100
-  if count % 3 == 0 && count % 5 == 0
+numbers.each do |value|
+  if value % 3 == 0 && count % 5 == 0
     fizz_buzz_array.push('FizzBuzz')
     count += 1
-  elsif count % 3 == 0
+  elsif value % 3 == 0
     fizz_buzz_array.push('Fizz')
     count += 1
-  elsif count % 5 == 0
+  elsif value % 5 == 0
     fizz_buzz_array.push('Buzz')
     count += 1
   else
@@ -20,4 +20,4 @@ while count <= 100
   end
 end
 
-print fizz_buzz_array
+puts fizz_buzz_array
