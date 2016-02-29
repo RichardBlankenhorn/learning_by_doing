@@ -3,7 +3,7 @@
 practice_array = [1,2,3,4,5,6,7,8,9,10]
 
 print practice_array.join('...') + "...\n"
-print "T-#{practice_array.reverse.join(', ')}... BLASTOFF!\n"
+print "T-#{practice_array.reverse.join(', ')}...  BLASTOFF!\n"
 print "The last element is #{practice_array[-1]}\n"
 print "The first element is #{practice_array[0]}\n"
 print "The third element is #{practice_array[2]}\n"
