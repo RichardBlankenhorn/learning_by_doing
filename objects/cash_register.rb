@@ -1,30 +1,29 @@
 #!/usr/bin/env ruby
-
+# Creating the CashRegister class
 class CashRegister
   def initialize
-    @total = 0
+    @total = 0.00
   end
 
   def purchase(purchase_amount)
-    @total = purchase_amount.to_f + @total
-    puts "$#{@total}"
+    @total += purchase_amount
+    puts "$#{format('%.2f', @total)}"
   end
 
   def pay(pay_amount)
-    @total = @total - pay_amount.to_f
+    @total -= pay_amount
     if @total < 0
-      puts "Your change is $#{(@total) * -1}"
+      puts "Your change is $#{format('%.2f', (@total * -1))}"
       @total = 0
     else
-      puts "Your new total is $#{@total}"
+      puts "Your new total is $#{format('%.2f', @total)}"
     end
   end
 
-  def total()
+  def total
     current_total = @total
-    puts "You currently owe $#{current_total}"
+    puts "You currently owe $#{format('%.2f', current_total)}"
   end
-
 end
 
 register = CashRegister.new
@@ -37,5 +36,3 @@ register.purchase(1)
 register.total
 register.pay(50)
 register.total
-
-
