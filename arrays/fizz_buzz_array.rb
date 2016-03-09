@@ -17,4 +17,4 @@ numbers.each do |value|
   count += 1
 end
 
-print fizz_buzz_array
+puts fizz_buzz_array
