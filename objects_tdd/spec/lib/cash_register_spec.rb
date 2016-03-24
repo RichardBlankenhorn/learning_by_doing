@@ -24,7 +24,7 @@ describe CashRegister do
       before do
         register.purchase(60)
       end
-      it 'should subtract amount from total and return new total' do
+      it 'should subtract payment amount from total and return new total' do
         expect(register.payment(50)).to eq(10)
       end
     end
