@@ -2,22 +2,20 @@
 class CashRegister
   attr_reader :total
   def initialize
-    puts "You owe $#{format('%.2f', 0)}"
-    @total = 0
+    @total = 0.00
   end
 
   def purchase(amount)
-    puts "$#{format('%.2f', @total += amount)}"
-    @total
+    @total += amount
   end
 
   def payment(amount)
-    if amount > @total
-      puts "Your change is $#{format('%.2f', (@total -= amount) * -1)}"
-      @total = 0
+    @total -= amount
+    if @total < 0
+      puts "Your change is $#{format('%.2f', total * -1)}"
+      @total = 0.00
     else
-      puts "You owe $#{format('%.2f', (@total -= amount))}"
-      @total
+      puts "You owe $#{format('%.2f', total)}"
     end
   end
 end

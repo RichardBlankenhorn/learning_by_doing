@@ -25,7 +25,8 @@ describe CashRegister do
         register.purchase(60)
       end
       it 'should subtract payment amount from total and return new total' do
-        expect(register.payment(50)).to eq(10)
+        register.payment(50)
+        expect(register.total).to eq(10)
       end
     end
     context 'when the total is less than payment amount' do
@@ -33,12 +34,17 @@ describe CashRegister do
         register.purchase(50)
       end
       it 'should subtract amount from total and return 0' do
-        expect(register.payment(60)).to eq(0)
+        register.payment(60)
+        expect(register.total).to eq(0)
       end
     end
     context 'when the total is equal to payment amount' do
+      before do
+        register.purchase(60)
+      end
       it 'should subract amount from total and return 0' do
-        expect(register.payment(60)).to eq(0)
+        register.payment(60)
+        expect(register.total).to eq(0)
       end
     end
   end
