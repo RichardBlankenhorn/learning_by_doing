@@ -12,10 +12,13 @@ class CashRegister
   def payment(amount)
     @total -= amount
     if @total < 0
-      puts "Your change is $#{format('%.2f', total * -1)}"
+      change = @total.abs
       @total = 0.00
+      "Your change is $#{format('%.2f', change)}"
+    elsif @total > 0
+      "You owe $#{format('%.2f', total)}"
     else
-      puts "You owe $#{format('%.2f', total)}"
+      total
     end
   end
 end
